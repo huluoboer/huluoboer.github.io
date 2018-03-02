@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="集合," />
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="broccoli | huluoboer">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="[技术-01] 1. [Arraylist]Arraylist是属于Java集合下的一个常用的集合类，对比与数组，Arraylist存储的是对象的引用，而数组则可以直接存储对象或基本类型的值。">
+<meta name="keywords" content="集合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="集合 | 01">
+<meta property="og:url" content="http://yoursite.com/2018/03/02/arraylist/index.html">
 <meta property="og:site_name" content="broccoli | huluoboer">
+<meta property="og:description" content="[技术-01] 1. [Arraylist]Arraylist是属于Java集合下的一个常用的集合类，对比与数组，Arraylist存储的是对象的引用，而数组则可以直接存储对象或基本类型的值。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-02T11:08:56.744Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="broccoli | huluoboer">
+<meta name="twitter:title" content="集合 | 01">
+<meta name="twitter:description" content="[技术-01] 1. [Arraylist]Arraylist是属于Java集合下的一个常用的集合类，对比与数组，Arraylist存储的是对象的引用，而数组则可以直接存储对象或基本类型的值。">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/02/arraylist/"/>
 
 
 
 
 
-  <title>broccoli | huluoboer</title>
+  <title>集合 | 01 | broccoli | huluoboer</title>
   
 
 
@@ -140,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -244,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -276,9 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/02/arraylist/" itemprop="url">集合 | 01</a></h1>
+          <h1 class="post-title" itemprop="name headline">集合 | 01</h1>
         
 
         <div class="post-meta">
@@ -350,17 +352,18 @@
       
 
       
-        
-          <h1 id="技术-01"><a href="#技术-01" class="headerlink" title="[技术-01]"></a>[技术-01]</h1><hr>
+        <h1 id="技术-01"><a href="#技术-01" class="headerlink" title="[技术-01]"></a>[技术-01]</h1><hr>
 <h3 id="1-Arraylist"><a href="#1-Arraylist" class="headerlink" title="1. [Arraylist]"></a>1. [Arraylist]</h3><p>Arraylist是属于Java集合下的一个常用的集合类，对比与数组，Arraylist存储的是对象的引用，而数组则可以直接存储对象或基本类型的值。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/02/arraylist/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<a id="more"></a>
+<h3 id="2-操作Arraylist"><a href="#2-操作Arraylist" class="headerlink" title="2. [操作Arraylist]:"></a>2. [操作Arraylist]:</h3><p>遍历Arraylist:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; books= Lists.newArrayList();</span><br><span class="line">     books.add(<span class="string">"CS"</span>);</span><br><span class="line">     books.add(<span class="string">"EE"</span>);</span><br><span class="line">     books.add(<span class="string">"Linux"</span>);</span><br><span class="line">     books.forEach(b-&gt; System.out.println(b));</span><br></pre></td></tr></table></figure></p>
+<p>转换ArrayList<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; collect = books.stream().map(o -&gt; o.toUpperCase()).collect(Collectors.toList());</span><br></pre></td></tr></table></figure></p>
+<p>过滤ArrayList<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; collect1 = books.stream().filter(o -&gt; o.startsWith(<span class="string">"c"</span>)).collect(Collectors.toList());</span><br></pre></td></tr></table></figure></p>
+<p>分组ArrayList<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Book&gt; books= Lists.newArrayList();</span><br><span class="line">       Book cs0 =<span class="keyword">new</span> Book(<span class="string">"a"</span>,<span class="string">"cs"</span>,<span class="string">"10.00"</span>);</span><br><span class="line">       Book cs1 =<span class="keyword">new</span> Book(<span class="string">"b"</span>,<span class="string">"cs"</span>,<span class="string">"12.00"</span>);</span><br><span class="line">       Book cs2 =<span class="keyword">new</span> Book(<span class="string">"c"</span>,<span class="string">"cs"</span>,<span class="string">"15.00"</span>);</span><br><span class="line">       books.add(cs0);</span><br><span class="line">       books.add(cs1);</span><br><span class="line">       books.add(cs2);</span><br><span class="line">       Map&lt;String, List&lt;Book&gt;&gt; groupByPriceMap =books.stream().collect(Collectors.groupingBy(Book::getName));</span><br></pre></td></tr></table></figure></p>
+<p>排序ArrayList<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; collect2 = books.stream().sorted((o1, o2)-&gt;((String)o1).length() - ((String)o2).length()).collect(Collectors.toList());</span><br></pre></td></tr></table></figure></p>
+<p>去重ArrayList<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; collect3 = books.stream().distinct().collect(Collectors.toList());</span><br></pre></td></tr></table></figure></p>
+<p>求和ArrayList<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Book&gt; books= Lists.newArrayList();</span><br><span class="line">      Book cs0 =<span class="keyword">new</span> Book(<span class="string">"a"</span>,<span class="string">"cs"</span>,<span class="keyword">new</span> BigDecimal(<span class="number">10.00</span>));</span><br><span class="line">      Book cs1 =<span class="keyword">new</span> Book(<span class="string">"b"</span>,<span class="string">"cs"</span>,<span class="keyword">new</span> BigDecimal(<span class="number">10.00</span>));</span><br><span class="line">      Book cs2 =<span class="keyword">new</span> Book(<span class="string">"c"</span>,<span class="string">"cs"</span>,<span class="keyword">new</span> BigDecimal(<span class="number">10.00</span>));</span><br><span class="line">      books.add(cs0);</span><br><span class="line">      books.add(cs1);</span><br><span class="line">      books.add(cs2);</span><br><span class="line">      BigDecimal totalMoney = books.stream().map(Book::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add);</span><br></pre></td></tr></table></figure></p>
+<p>###2.说明ArrayList:<br>/待更新</p>
+
       
     </div>
     
@@ -375,318 +378,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/01/life-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="西兰花">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/25869472?s=460&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="broccoli | huluoboer">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/01/life-1/" itemprop="url">生活 | 02</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-01T01:29:42+08:00">
-                2018-03-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/集合/" rel="tag"># 集合</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h1 id="生活-02"><a href="#生活-02" class="headerlink" title="[生活-02]"></a>[生活-02]</h1><hr>
-<p>   深夜更博，哈哈，本来想把整理的基本知识数据结构list篇更了，但是由于篇幅太少，遂准备与接下来的链表一起等下周。还是先把这两天的事情记录下来</p>
-<h3 id="1-爱情"><a href="#1-爱情" class="headerlink" title="1. 爱情"></a>1. 爱情</h3><blockquote>
-<p>理想主义者指善于运用直觉去认识世界，运用情感去对世界作出判断的人。理想主义是高于现实并能调校现实的一种思想倾向.</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/01/life-1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/01/life-1/" rel="next" title="生活 | 02">
+                <i class="fa fa-chevron-left"></i> 生活 | 02
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/25/my-blog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="西兰花">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/25869472?s=460&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="broccoli | huluoboer">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/25/my-blog/" itemprop="url">生活 | 01</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-25T01:29:42+08:00">
-                2018-02-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h1 id="生活-01"><a href="#生活-01" class="headerlink" title="[生活-01]"></a>[生活-01]</h1><hr>
-<p>搭建这个博客网站的初衷是记录一些自己技术方面的总结或是生活当中的一些感悟或是经历等等，不知从何时起，QQ很少登录，朋友圈也渐渐不在更新，至于原因吗？也说不出什么，希望在这里我能尽情的抒发感，还能发自拍，哈哈！</p>
-<h3 id="基本就这两条："><a href="#基本就这两条：" class="headerlink" title="基本就这两条："></a>基本就这两条：</h3><blockquote>
-<ul>
-<li>整理知识，学习笔记</li>
-<li>发布日记，杂文，所见所想</li>
-</ul>
-</blockquote>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/02/25/my-blog/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -696,10 +417,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -707,6 +429,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -727,8 +453,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -792,6 +527,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#技术-01"><span class="nav-number">1.</span> <span class="nav-text">[技术-01]</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Arraylist"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. [Arraylist]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-操作Arraylist"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. [操作Arraylist]:</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -912,6 +663,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
