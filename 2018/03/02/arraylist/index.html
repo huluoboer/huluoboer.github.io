@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="broccoli | huluoboer">
 <meta property="og:description" content="[技术-01] 1. [Arraylist]Arraylist是属于Java集合下的一个常用的集合类，对比与数组，Arraylist存储的是对象的引用，而数组则可以直接存储对象或基本类型的值。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-02T11:08:56.744Z">
+<meta property="og:updated_time" content="2018-03-12T16:25:31.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="集合 | 01">
 <meta name="twitter:description" content="[技术-01] 1. [Arraylist]Arraylist是属于Java集合下的一个常用的集合类，对比与数组，Arraylist存储的是对象的引用，而数组则可以直接存储对象或基本类型的值。">
@@ -362,7 +362,26 @@
 <p>排序ArrayList<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; collect2 = books.stream().sorted((o1, o2)-&gt;((String)o1).length() - ((String)o2).length()).collect(Collectors.toList());</span><br></pre></td></tr></table></figure></p>
 <p>去重ArrayList<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; collect3 = books.stream().distinct().collect(Collectors.toList());</span><br></pre></td></tr></table></figure></p>
 <p>求和ArrayList<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Book&gt; books= Lists.newArrayList();</span><br><span class="line">      Book cs0 =<span class="keyword">new</span> Book(<span class="string">"a"</span>,<span class="string">"cs"</span>,<span class="keyword">new</span> BigDecimal(<span class="number">10.00</span>));</span><br><span class="line">      Book cs1 =<span class="keyword">new</span> Book(<span class="string">"b"</span>,<span class="string">"cs"</span>,<span class="keyword">new</span> BigDecimal(<span class="number">10.00</span>));</span><br><span class="line">      Book cs2 =<span class="keyword">new</span> Book(<span class="string">"c"</span>,<span class="string">"cs"</span>,<span class="keyword">new</span> BigDecimal(<span class="number">10.00</span>));</span><br><span class="line">      books.add(cs0);</span><br><span class="line">      books.add(cs1);</span><br><span class="line">      books.add(cs2);</span><br><span class="line">      BigDecimal totalMoney = books.stream().map(Book::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add);</span><br></pre></td></tr></table></figure></p>
-<p>###2.说明ArrayList:<br>/待更新</p>
+<p>###2.说明:</p>
+<p><a href="http://blog.csdn.net/u010425776/article/details/52344425" target="_blank" rel="noopener">参考博客</a></p>
+<p>  1.流的基本概念</p>
+<h3 id="1-1什么是流？"><a href="#1-1什么是流？" class="headerlink" title="1.1什么是流？"></a>1.1什么是流？</h3><p>  流是Java8 引入的全新概念，用来处理集合中的数据，暂时可以理解为一种优雅 的集合处理方式<br>  传统对集合的操作相对麻烦。流的声明式写法，链式操作，代码简洁，可读性更高（个人认为）</p>
+<p>###1.2流的特点<br>  1.流只能遍历一次<br>  流水线的概念，一旦一个产品完成流的操作，便不能再次拿到并处理。<br>  2.采用内部迭代的方式<br>  声明式由流自行处理内部，我们只需表达。</p>
+<p>###1.3流的操作过程<br>1.数据源<br>2.执行中间操作–&gt;流水线操作<br>3.终端操作—&gt;本次流操作结束</p>
+<p>###1.4  Optional介绍<br>Optional是Java8新加入的一个容器，这个容器只存0个或1个元素，它用于防止出现NullPointException<br>API:<br>isPresent()<br>判断容器是否有值<br>ifPresent(lambda) 容器若不为空执行则 Lambda<br>T get()<br>若容器为空 则抛出NoSuchElement异常<br>T orElse(T else)<br>获取容器中的元素，若容器为空则返回括号中的值</p>
+<p>###2.13归约<br>归约是将集合中的所有元素经指定运算，折叠成一个元素输出，如：求和，求平均值<br>reduce函数实现归约</p>
+<pre><code>int age=list.stream.reduce(0,(p1,p2)-&gt;p1.getAge()+p2.getAge());
+</code></pre><p>reduce的第一个参数表示初始值<br>第二个参数需要进行的操作，他将结合艘带有两个参数的lambda的表达式</p>
+<p>###2.2收集器的简介<br>收集器将经过筛选，映射的流进行最后的 整理，可以 使得最后的结果以不同的结果展示。<br>collect方法即为收集器，他接收Collector接口实现作为 收集器的收集方法<br>Collect接口提供了很多默认的实现方法，也可以自定义实现<br>静态方法的使用：</p>
+<p>###2.2.1计数<br>list.stream.collect(Collectors.counting)<br>list.stream.collect(Collectors.maxBy(Comparator.comparingInt(Person::getAge)))<br>list.stream.collect(Collectors.summingInt(Person::getAge))</p>
+<p>###2.2.2 连接字符串<br>list.stream.collect(Collectors.join())</p>
+<p>###2.3 一般性的规约操作<br>Collectors.reducing(1,2,,3)<br>初始值<br>操作的字段<br>操作过程<br>Optional<integer> sumAge = list.stream()<br>                                    .collect(Collectors.reducing(0,Person::getAge,(i,j)-&gt;i+j));</integer></p>
+<p>###2.4 一级分组<br><code>list.stream.collect(Collectors.groupingBy((person)-&gt;{
+...
+}))</code></p>
+<p>###2.4 二级分组<br>两个参数重载<br>Map&lt;String,Map&lt;String,List<person>&gt;&gt; result = list.stream()<br>                                    .collect(Collectors.groupingby((person)-&gt;{<br>       …<br>            },                     groupingby(Person::getSex)));</person></p>
+<p>每一组的最值</p>
+<p>Map&lt;String,Integer&gt; map = list.stream()<br>                            .collect(groupingBy(Person::getSex,<br>                            collectingAndThen(<br>                            maxBy(comparingInt(Person::getAge)),<br>                            Optional::get<br>                            )))</p>
 
       
     </div>
@@ -541,7 +560,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#技术-01"><span class="nav-number">1.</span> <span class="nav-text">[技术-01]</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Arraylist"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. [Arraylist]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-操作Arraylist"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. [操作Arraylist]:</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#技术-01"><span class="nav-number">1.</span> <span class="nav-text">[技术-01]</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Arraylist"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. [Arraylist]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-操作Arraylist"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. [操作Arraylist]:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1什么是流？"><span class="nav-number">1.0.3.</span> <span class="nav-text">1.1什么是流？</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
